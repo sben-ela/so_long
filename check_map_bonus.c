@@ -1,5 +1,6 @@
 #include "so_long.h"
 
+
 int handle_collectble_behind_exit(char **map)
 {
     int x = check_position(map, 'E')[1];
@@ -56,7 +57,7 @@ int check_exist(char **map, char c)
         j = 0;
         while(map[i][j])
         {
-            if(map[i][j] != '0' && map[i][j] != '1'  && map[i][j] != 'C' && map[i][j] != 'E' && map[i][j] != 'P')
+            if(map[i][j] != '0' && map[i][j] != '1' && map[i][j] != 'B' && map[i][j] != 'C' && map[i][j] != 'E' && map[i][j] != 'P')
                 ft_perror();
             if(map[i][j] == c)
                 n++;
@@ -141,7 +142,7 @@ int check_map(char **map)
             break;
         map[i][ft_strlen(map[i]) - 1] = '\0';
     }
-    if(!check_columns(map) || !check_rows(map) || !check_exist(map, 'E') || !check_exist(map, 'P') || !check_exist(map, 'C'))
+  if(!check_columns(map) || !check_rows(map) || !check_exist(map, 'E') || !check_exist(map, 'P') || !check_exist(map, 'C'))
         ft_perror();
     if(!handle_collectble_behind_exit(map))
         ft_perror();

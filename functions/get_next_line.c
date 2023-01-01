@@ -6,14 +6,14 @@
 /*   By: sben-ela <sben-ela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 18:08:13 by sben-ela          #+#    #+#             */
-/*   Updated: 2022/12/26 17:02:22 by sben-ela         ###   ########.fr       */
+/*   Updated: 2023/01/01 11:48:51 by sben-ela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 #	ifndef BUFFER_SIZE
-# 		define BUFFER_SIZE 1
+# 		define BUFFER_SIZE 2
 #	endif
 
 int	ft_strlen(const char *s)

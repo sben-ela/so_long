@@ -52,7 +52,6 @@ void full_window(win *win);
 int hook(int key_number, win *win);
 void    put_images_to_window(win *game, void *img_data, char c);
 char	*get_next_line(int fd);
-char **get_map(int fd, int count);
 int count_line(char *av);
 void ft_perror(void);
 int	ft_strncmp(char *s1, char *s2, int n);
