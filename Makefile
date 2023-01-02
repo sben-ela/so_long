@@ -1,20 +1,26 @@
 CFLAGS = -Wall -Wextra -Werror
+NAME = so_long.a
+BONUS = so_long_bonus
 PROG = so_long
-BPROG = so_long_bonus
-SOURCES = so_long.c functions/get_next_line.c check_map.c functions/ft_perror.c  so_long_utils.c moves.c functions/ft_itoa.c functions/ft_strncmp.c
-BSOURCES =  so_long_bonus.c functions/get_next_line.c check_map_bonus.c  functions/ft_perror.c so_long_utils_bonus.c  moves_bonus.c functions/ft_itoa.c functions/ft_strncmp.c 
+SOURCES = so_long.c functions/get_next_line.c check_map.c functions/ft_perror.c  so_long_utils.c moves.c functions/ft_itoa.c functions/ft_free.c functions/check_position.c functions/ft_strlen.c
+BSOURCES =  so_long_bonus.c functions/get_next_line.c check_map_bonus.c  functions/ft_perror.c so_long_utils_bonus.c  moves_bonus.c functions/ft_itoa.c functions/ft_free.c functions/check_position.c functions/ft_strlen.c
 OBJECTS = $(SOURCES:.c=.o)
-BOBJECT = $(BSOURCES:.c=.o)
-all: $(PROG)
 
-$(PROG)	: $(OBJECTS)
-	cc	$(CFLAGS) $(OBJECTS) -lmlx -framework OpenGL -framework AppKit  -o $(PROG)
-bonus : $(BOBJECT)
-	cc	$(CFLAGS) $(BOBJECT)  -lmlx -framework OpenGL -framework AppKit  -o $(BPROG)
-clean: 
-	rm -f $(OBJECTS) $(BOBJECT)
+all: $(NAME)
+
+$(NAME): $(OBJECTS)
+	ar rc $(NAME) $(OBJECTS)
+	cc	$(CFLAGS)  $(OBJECTS) -lmlx -framework OpenGL -framework AppKit  -o $(PROG)
+
+bonus: ${BONUS}
+
+${BONUS}:
+	cc	$(CFLAGS) $(BSOURCES) -lmlx -framework OpenGL -framework AppKit  -o ${BONUS}
+
+clean:
+	rm -f $(OBJECTS)
 
 fclean: clean
-	rm -f $(PROG) $(OBJECTS) $(BOBJECTS) $(BPROG)
+	rm -f $(NAME) $(BONUS) $(PROG) $(BONUS)
 
 re: fclean all

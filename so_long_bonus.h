@@ -1,64 +1,62 @@
-#ifndef SO_LONG_H
-# define SO_LONG_H
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sben-ela <sben-ela@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/02 14:27:41 by sben-ela          #+#    #+#             */
+/*   Updated: 2023/01/02 15:31:16 by sben-ela         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include <stdlib.h>
-#include <unistd.h>
-#include <stdio.h>
-#include <fcntl.h>
-#include "mlx.h"
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 
+# include	<stdlib.h>
+# include	<unistd.h>
+# include	<stdio.h>
+# include	<fcntl.h>
+# include	"mlx.h"
 
-typedef struct position
+typedef struct game
 {
-    int ex;
-    int ey;
-    int px;
-    int py;
-}position;
+	int		move;
+	void	*wall;
+	void	*ground;
+	void	*player;
+	void	*coin;
+	void	*door;
+	void	*mlx;
+	void	*win;
+	char	*av;
+	char	**map;
+	int		width;
+	int		height;
+	void	*pacman;
+	int		d;
+	char	*str;
+}t_bgame;
 
-typedef struct win
-{
-    int move;
-    void *wall;
-    void *ground;
-    void *player;
-    void *coin;
-    void *door;
-    void *door2;
-    void *mlx;
-    void *win;
-    char *av;
-    char **map;
-    int width;
-    int height;
-    void* pacman;
-    int d;
-}win;
-
-///utils
-int count_line_map(char **map);
-int count_line(char *av);
-char **get_map(int fd, int count);
-int check_rows(char **map);
-int check_columns(char **map);
-///moves
-void handle_up(win *game);
-void handle_left(win *game);
-void handle_right(win *game);
-void handle_down(win *game);
-int check_exist(char **map, char c);
+void	ft_full_window(t_bgame *game);
+void	ft_free(char **map);
+int		count_line_map(char **map);
+int		count_line(char *av);
+char	**get_map(int fd, int count);
+int		check_rows(char **map);
+int		check_columns(char **map);
+void	ft_handle_up(t_bgame *game);
+void	ft_handle_left(t_bgame *game);
+void	ft_handle_right(t_bgame *game);
+void	ft_handle_down(t_bgame *game);
+int		check_exist(char **map, char c);
 void	ft_putchar(char c, int fd);
-void full_window(win *win);
-int hook(int key_number, win *win);
-void    put_images_to_window(win *game, void *img_data, char c);
 char	*get_next_line(int fd);
-int count_line(char *av);
-void ft_perror(void);
-int	ft_strncmp(char *s1, char *s2, int n);
+int		count_line(char *av);
+void	ft_perror(void);
 char	*ft_strchr(const char *s, int c);
-int	ft_strlen(const char *s);
-int *check_position(char **map, char c);
-int check_map(char **map);
-void	ft_putnbr_fd(int nb, int fd);
+int		ft_strlen(const char *s);
+int		*check_position(char **map, char c);
+int		check_map(char **map);
 char	*ft_itoa(int n);
 #endif

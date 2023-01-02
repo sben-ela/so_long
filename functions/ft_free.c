@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sben-ela <sben-ela@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sben-ela <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/21 16:03:33 by sben-ela          #+#    #+#             */
-/*   Updated: 2023/01/01 11:48:46 by sben-ela         ###   ########.fr       */
+/*   Created: 2023/01/02 14:31:44 by sben-ela          #+#    #+#             */
+/*   Updated: 2023/01/02 14:32:12 by sben-ela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
+#include "../so_long_bonus.h"
 
-int	ft_strncmp(char *s1, char *s2, int n)
+void	ft_free(char **map)
 {
 	int	i;
 
 	i = 0;
-	while (i < n && (s1 [i] || s2 [i]))
+	while (map[i])
 	{
-		if (s1 [i] != s2 [i])
-			return (s1 [i] - s2 [i]);
-				i++;
+		free(map[i]);
+		i++;
 	}
-	return (0);
+	free(map);
 }
