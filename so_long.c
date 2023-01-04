@@ -6,7 +6,7 @@
 /*   By: sben-ela <sben-ela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 15:17:21 by sben-ela          #+#    #+#             */
-/*   Updated: 2023/01/02 17:16:42 by sben-ela         ###   ########.fr       */
+/*   Updated: 2023/01/03 15:11:43 by sben-ela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	put_images_to_window(t_game *game, void *img_data, char c)
 int	hook(int key_number, t_game *game)
 {
 	if (key_number == 53)
-		exit(0);
+		game_over();
 	if (key_number == 13 || key_number == 126)
 	{
 		handle_up(game);
@@ -84,12 +84,15 @@ void	full_window(t_game *game)
 			&game->width, &game->height);
 	game->door = mlx_xpm_file_to_image(game->mlx, "images/door.xpm", \
 			&game->width, &game->height);
+	if(!game->door || !game->ground || !game->player || !game->coin || !game->wall)
+		ft_perror();
 	put_images_to_window(game, game->wall, '1');
 	put_images_to_window(game, game->ground, '0');
 	put_images_to_window(game, game->player, 'P');
 	put_images_to_window(game, game->coin, 'C');
 	put_images_to_window(game, game->door, 'E');
 	mlx_hook(game->win, 2, 0, hook, game);
+	mlx_hook(game->win, 17, 0, game_over, game);
 	mlx_loop(game->mlx);
 }
 
@@ -99,9 +102,10 @@ int	main(int ac, char **av)
 	t_game	game;
 	int		fd;
 
+	game.move = 1;
 	game.av = av[1];
 	count = count_line(game.av);
-	if (ac != 2)
+	if (ac != 2 || !compare(av[1]))
 		ft_perror();
 	fd = open(av[1], O_RDWR);
 	if (fd < 3)

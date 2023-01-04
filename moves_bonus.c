@@ -6,7 +6,7 @@
 /*   By: sben-ela <sben-ela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 20:16:40 by sben-ela          #+#    #+#             */
-/*   Updated: 2023/01/02 15:28:56 by sben-ela         ###   ########.fr       */
+/*   Updated: 2023/01/03 14:52:09 by sben-ela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,7 @@ void	ft_handle_up(t_bgame *game)
 	{
 		if (check_exist_c(game->map) && game->map[y - 1][x] == 'E')
 			return ;
-		write(1, "GAME OVER", 9);
-		exit(0);
+		game_over();
 	}
 	game->move++;
 	game->map[y][x] = '0';
@@ -70,8 +69,7 @@ void	ft_handle_left(t_bgame *game)
 	{
 		if (check_exist_c(game->map) && game->map[y][x - 1] == 'E')
 			return ;
-		write(1, "GAME OVER", 9);
-		exit(0);
+		game_over();
 	}
 	game->move++;
 	game->map[y][x] = '0';
@@ -93,8 +91,7 @@ void	ft_handle_right(t_bgame *game)
 	{
 		if (check_exist_c(game->map) && game->map[y][x + 1] == 'E')
 			return ;
-		write(1, "GAME OVER", 9);
-		exit(0);
+		game_over();
 	}
 	game->move++;
 	game->map[y][x] = '0';
@@ -116,8 +113,7 @@ void	ft_handle_down(t_bgame *game)
 	{
 		if (check_exist_c(game->map) && game->map[y + 1][x] == 'E')
 			return ;
-		write(1, "GAME OVER", 9);
-		exit(0);
+		game_over();
 	}
 	game->move++;
 	game->map[y][x] = '0';

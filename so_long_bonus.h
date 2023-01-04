@@ -6,7 +6,7 @@
 /*   By: sben-ela <sben-ela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 14:27:41 by sben-ela          #+#    #+#             */
-/*   Updated: 2023/01/02 15:31:16 by sben-ela         ###   ########.fr       */
+/*   Updated: 2023/01/03 15:30:09 by sben-ela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,9 @@ typedef struct game
 	char	*str;
 }t_bgame;
 
+int		hook(int key_number, t_bgame *game);
+int		compare(char *map);
+int		game_over(void);
 void	ft_full_window(t_bgame *game);
 void	ft_free(char **map);
 int		count_line_map(char **map);

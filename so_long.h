@@ -6,7 +6,7 @@
 /*   By: sben-ela <sben-ela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 14:04:37 by sben-ela          #+#    #+#             */
-/*   Updated: 2023/01/02 14:14:48 by sben-ela         ###   ########.fr       */
+/*   Updated: 2023/01/03 15:30:42 by sben-ela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,12 @@ typedef struct win
 	int		width;
 	int		height;
 	int		d;
+	int move;
 }t_game;
 
+int compare(char *map);
+int		game_over(void);
+void	ft_putnbr_fd(int nb, int fd);
 int		count_line_map(char **map);
 int		check_rows(char **map);
 int		check_columns(char **map);
@@ -46,7 +50,6 @@ void	handle_down(t_game *game);
 int		check_exist(char **map, char c);
 void	ft_putchar(char c, int fd);
 void	full_window(t_game *win);
-int		hook(int key_number, t_game *win);
 void	put_images_to_window(t_game *game, void *img_data, char c);
 char	*get_next_line(int fd);
 char	**get_map(int fd, int count);

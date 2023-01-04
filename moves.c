@@ -6,7 +6,7 @@
 /*   By: sben-ela <sben-ela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 20:16:40 by sben-ela          #+#    #+#             */
-/*   Updated: 2023/01/02 14:14:04 by sben-ela         ###   ########.fr       */
+/*   Updated: 2023/01/03 11:48:53 by sben-ela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,10 @@ void	handle_up(t_game *game)
 	{
 		if (check_exist_c(game->map))
 			return ;
-		write(1, "GAME OVER", 9);
-		exit(0);
+		game_over();
 	}
+	ft_putnbr_fd(game->move++, 1);
+	ft_putchar('\n', 1);
 	game->map[y][x] = '0';
 	game->map[y - 1][x] = 'P';
 }
@@ -65,9 +66,10 @@ void	handle_left(t_game *game)
 	{
 		if (check_exist_c(game->map))
 			return ;
-		write(1, "GAME OVER", 9);
-		exit(0);
+		game_over();
 	}
+	ft_putnbr_fd(game->move++, 1);
+	ft_putchar('\n', 1);
 	game->map[y][x] = '0';
 	game->map[y][x - 1] = 'P';
 }
@@ -85,9 +87,10 @@ void	handle_right(t_game *game)
 	{
 		if (check_exist_c(game->map))
 			return ;
-		write(1, "GAME OVER", 9);
-		exit(0);
+		game_over();
 	}
+	ft_putnbr_fd(game->move++, 1);
+	ft_putchar('\n', 1);
 	game->map[y][x] = '0';
 	game->map[y][x + 1] = 'P';
 }
@@ -105,9 +108,10 @@ void	handle_down(t_game *game)
 	{
 		if (check_exist_c(game->map))
 			return ;
-		write(1, "GAME OVER", 9);
-		exit(0);
+		game_over();
 	}
+	ft_putnbr_fd(game->move++, 1);
+	ft_putchar('\n', 1);
 	game->map[y][x] = '0';
 	game->map[y + 1][x] = 'P';
 }
