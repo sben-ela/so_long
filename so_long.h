@@ -6,7 +6,7 @@
 /*   By: sben-ela <sben-ela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 14:04:37 by sben-ela          #+#    #+#             */
-/*   Updated: 2023/01/03 15:30:42 by sben-ela         ###   ########.fr       */
+/*   Updated: 2023/01/05 19:42:18 by sben-ela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,13 @@ typedef struct win
 	int		width;
 	int		height;
 	int		d;
-	int move;
+	int		move;
+	int		count;
 }t_game;
 
-int compare(char *map);
+void	handle_new_line(char **map);
+int		check_exist_c(char **map);
+int		compare(char *map);
 int		game_over(void);
 void	ft_putnbr_fd(int nb, int fd);
 int		count_line_map(char **map);

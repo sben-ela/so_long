@@ -6,7 +6,7 @@
 /*   By: sben-ela <sben-ela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 16:05:16 by sben-ela          #+#    #+#             */
-/*   Updated: 2023/01/02 16:47:13 by sben-ela         ###   ########.fr       */
+/*   Updated: 2023/01/05 15:46:21 by sben-ela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,16 +76,9 @@ void	floud(char **map, int i, int j)
 
 int	check_map(char **map)
 {
-	int	i;
 	int	*tab;
 
-	i = -1;
-	while (++i < count_line_map(map))
-	{
-		if (map[i][ft_strlen(map[i]) - 1] != '\n')
-			break ;
-		map[i][ft_strlen(map[i]) - 1] = '\0';
-	}
+	handle_new_line(map);
 	if (!check_columns(map) || !check_rows(map) || !check_exist(map, 'E')
 		|| !check_exist(map, 'P') || !check_exist(map, 'C'))
 		ft_perror();

@@ -6,7 +6,7 @@
 /*   By: sben-ela <sben-ela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 14:27:41 by sben-ela          #+#    #+#             */
-/*   Updated: 2023/01/03 15:30:09 by sben-ela         ###   ########.fr       */
+/*   Updated: 2023/01/05 19:47:30 by sben-ela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,11 @@ typedef struct game
 	void	*pacman;
 	int		d;
 	char	*str;
+	int		count;
 }t_bgame;
 
+void	handle_new_line(char **map);
+int		check_exist_c(char **map);
 int		hook(int key_number, t_bgame *game);
 int		compare(char *map);
 int		game_over(void);

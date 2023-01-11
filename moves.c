@@ -6,7 +6,7 @@
 /*   By: sben-ela <sben-ela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 20:16:40 by sben-ela          #+#    #+#             */
-/*   Updated: 2023/01/03 11:48:53 by sben-ela         ###   ########.fr       */
+/*   Updated: 2023/01/05 17:42:49 by sben-ela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,13 @@ void	handle_up(t_game *game)
 {
 	int	x;
 	int	y;
+	int	*tab;
 
-	y = check_position(game->map, 'P')[0];
-	x = check_position(game->map, 'P')[1];
-	if (game->map[y - 1][x] == '1' )
+	tab = check_position(game->map, 'P');
+	y = tab[0];
+	x = tab[1];
+	free(tab);
+	if (game->map[y - 1][x] == '1')
 		return ;
 	if (game->map[y - 1][x] == 'E')
 	{
@@ -57,9 +60,12 @@ void	handle_left(t_game *game)
 {
 	int	x;
 	int	y;
+	int	*tab;
 
-	y = check_position(game->map, 'P')[0];
-	x = check_position(game->map, 'P')[1];
+	tab = check_position(game->map, 'P');
+	y = tab[0];
+	x = tab[1];
+	free(tab);
 	if (game->map[y][x - 1] == '1')
 		return ;
 	if (game->map[y][x - 1] == 'E')
@@ -78,9 +84,12 @@ void	handle_right(t_game *game)
 {
 	int	x;
 	int	y;
+	int	*tab;
 
-	y = check_position(game->map, 'P')[0];
-	x = check_position(game->map, 'P')[1];
+	tab = check_position(game->map, 'P');
+	y = tab[0];
+	x = tab[1];
+	free(tab);
 	if (game->map[y][x + 1] == '1')
 		return ;
 	if (game->map[y][x + 1] == 'E')
@@ -99,9 +108,12 @@ void	handle_down(t_game *game)
 {
 	int	x;
 	int	y;
+	int	*tab;
 
-	y = check_position(game->map, 'P')[0];
-	x = check_position(game->map, 'P')[1];
+	tab = check_position(game->map, 'P');
+	y = tab[0];
+	x = tab[1];
+	free(tab);
 	if (game->map[y + 1][x] == '1')
 		return ;
 	if (game->map[y + 1][x] == 'E')

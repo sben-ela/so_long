@@ -6,7 +6,7 @@
 /*   By: sben-ela <sben-ela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 14:30:29 by sben-ela          #+#    #+#             */
-/*   Updated: 2023/01/02 17:18:09 by sben-ela         ###   ########.fr       */
+/*   Updated: 2023/01/05 19:48:39 by sben-ela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,17 @@ int	*check_position(char **map, char c)
 	}
 	free(tab);
 	return (0);
+}
+
+void	handle_new_line(char **map)
+{
+	int	i;
+
+	i = -1;
+	while (++i < count_line_map(map))
+	{
+		if (map[i][ft_strlen(map[i]) - 1] != '\n')
+			break ;
+		map[i][ft_strlen(map[i]) - 1] = '\0';
+	}
 }

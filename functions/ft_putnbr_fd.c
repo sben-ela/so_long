@@ -6,11 +6,11 @@
 /*   By: sben-ela <sben-ela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 21:30:48 by sben-ela          #+#    #+#             */
-/*   Updated: 2023/01/02 21:06:42 by sben-ela         ###   ########.fr       */
+/*   Updated: 2023/01/05 10:41:10 by sben-ela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 void	ft_putchar(char c, int fd)
 {
